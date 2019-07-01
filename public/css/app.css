@@ -1,0 +1,148 @@
+body {
+	background: #ecf2f4;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+.bg-soft {
+	width: 100%;
+	height: 100%;
+	padding-top: 5%;
+}
+
+.bg-soft .container {
+	padding: 1.7em;
+	width: 35%;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+	border-radius: .3em;
+	font-size: 1em;
+}
+
+.bg-soft .container .title {
+	font-size: 2em;
+	margin-bottom: .5em;
+}
+
+.bg-soft .container ul {
+	margin-top: .7em;
+}
+
+.bg-soft .container ul li {
+	padding: 1.3em 0;
+}
+
+.bg-soft .container ul li img{
+	width: 1.6em;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: .2em;
+}
+
+.bg-soft .container ul li span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.bg-soft .container ul li p {
+	color: grey;
+	padding-left: 2.1em;
+	padding-top: .2em;
+	width: 80%;
+	line-height: 1.5;
+}
+
+.bg-soft .container #buy_tickets {
+	font-size: 1.2em;
+	border-top: 1px solid #eaeff2;
+	padding: 1em 1.7em 0;
+	margin: 0 -1.3em;
+}
+
+.bg-soft .container #buy_tickets .price {
+	display: inline-block;
+	float: left;
+}
+
+.bg-soft .container #buy_tickets .num_wrapper {
+	padding: 1em 0;
+	margin-top: 1em;
+}
+
+.bg-soft .container #buy_tickets .num {
+	float: right;
+}
+
+.bg-soft .container #buy_tickets .num input {
+	display: block;
+	padding-left: .5em;
+	border: 2px solid #eaeff2;
+	border-radius: .4em;
+}
+
+.bg-soft .container #buy_tickets button{
+	color: #fff;
+	width: 100%;
+	background-color: #1595ce;
+	border-width: 0;
+	line-height: 2;
+	font-size: 1.3em;
+	border-radius: .2em;
+	clear: both;
+	margin-top: 1em;
+}
+
+@media (min-width: 960px) and (max-width: 1119px) {
+	.bg-soft .container {
+		font-size: 1.5em;
+		width: 60%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 959px) {
+	.bg-soft .container {
+		width: 60%;
+	}
+}
+
+@media (min-width: 414px) and (max-width: 767px) {
+	.bg-soft .container {
+		width: 90%;
+	}
+
+	.bg-soft .container ul li {
+		padding: 1em 0;
+	}
+
+	.bg-soft .container #buy_tickets .num_wrapper {
+		padding: 1em 0;
+		margin-top: 1em;
+	}
+}
+
+@media (max-width: 413px) {
+
+	.bg-soft {
+		padding-top: 0;
+	}
+
+	.bg-soft .container {
+		width: 100%;
+		min-height: 100%;
+		font-size: .8em;
+	}
+
+	.bg-soft .container ul li {
+		padding: .9em 0;
+	}
+
+	.bg-soft .container #buy_tickets .num_wrapper {
+		padding: 1em 0;
+		margin-top: 1em;
+	}
+
+}
