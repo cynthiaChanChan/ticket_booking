@@ -40,13 +40,4 @@ class Order extends Model
             'amount' => $this->amount
         ];
     }
-
-    public function cancel()
-    {
-    	foreach($this->tickets as $ticket) {
-    		$ticket->release();
-    	}
-
-    	$this->delete();
-    }
 }

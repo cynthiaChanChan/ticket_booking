@@ -41,6 +41,7 @@ class concertOrdersController extends Controller
 
             return response($order, 201);
         } catch (PaymentFailedException $e) {
+            $reservation->cancel();
             return response([], 422);
         } catch (NotEnoughTicketsException $e) {
             return response([], 422);
