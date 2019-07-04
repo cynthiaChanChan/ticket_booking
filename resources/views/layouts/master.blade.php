@@ -8,6 +8,7 @@
         <title>@yield('title', 'Ticket_booking')</title>
         <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @include('scripts.app')
     </head>
     <body class="bg-dark">
         <div id="app">
@@ -15,8 +16,8 @@
         </div>
 
         @stack('beforeScripts')
-        <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>        
         @stack('afterScripts')
     </body>
 </html>

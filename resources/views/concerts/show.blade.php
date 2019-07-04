@@ -43,3 +43,10 @@
 		</div>
 	</div>
 @endsection
+
+@push('beforeScripts')
+<script>
+    window.myApp.concert = @json($concert);
+</script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+@endpush
