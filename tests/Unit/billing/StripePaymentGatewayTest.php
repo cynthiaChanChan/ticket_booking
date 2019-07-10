@@ -58,4 +58,18 @@ class StripePaymentGatewayTest extends TestCase
 		$this->assertCount(1, $this->newCharges());
 		$this->assertEquals(2500, $this->lastCharge()->amount);
 	}
+
+	/** @test */
+	function charges_with_a_valid_payment_token_fail()
+	{
+		try {
+			$paymentGateway = new StripePaymentGateway(config('services.stripe.secret'));
+
+			$paymentGateway->charge(2500, 'fake_token');
+		} catch(PaymentFailedException $e) {
+			$this->assertCount(0, $this->newCharges());
+			return;
+		}
+		$this->fail();
+	}
 }
