@@ -12,6 +12,6 @@ class ConcertSeeder extends Seeder
      */
     public function run()
     {
-        $concert = factory(Concert::class)->states("published")->create();
+        $concert = factory(Concert::class)->states("published")->create()->addTickets(10);
     }
 }

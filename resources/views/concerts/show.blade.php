@@ -38,7 +38,7 @@
 					<label for="quantity">Qty</label>
 					<input class="num_wrapper" id="quantity" value="1" type="number"></input>
 				</div>
-				<button type="submit" class="bold">Buy Tickets</button>
+				<button type="submit" id="submit_btn" class="bold">Buy Tickets</button>
 			</form>
 		</div>
 	</div>
