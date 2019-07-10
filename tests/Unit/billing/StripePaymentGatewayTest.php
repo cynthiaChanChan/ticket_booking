@@ -6,6 +6,10 @@ use App\Billing\StripePaymentGateway;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group integration
+ */
+
 class StripePaymentGatewayTest extends TestCase
 {
 	private function lastCharge()
