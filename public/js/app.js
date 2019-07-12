@@ -49,4 +49,4 @@ myApp.purchaseTickets = function(token) {
 			submitBtn.prop("disabled", false);
 		}
 	})
-}
+};
