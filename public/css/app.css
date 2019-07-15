@@ -1,5 +1,13 @@
+/* colors
+blue: #1595ce;
+grey: #505558;
+light black: #373c3e;
+*/
 body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
 	background: #ecf2f4;
+	font-size: 16px;
 }
 
 #app {
@@ -136,4 +144,131 @@ body {
 		padding: .9em 0;
 	}
 
+}
+
+/*orders.show*/
+
+.order-border-bottom {
+	border-bottom: 1px solid #becad2;
+}
+
+.order-box {
+	width: 80vw;
+	margin: 0 auto;
+}
+
+.header {
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.order-summary {
+	font-size: 25px;
+}
+
+.comfirmation-num {
+	color: #1595ce;
+}
+
+.order-desc {
+	padding: 18px 0;
+	font-size: 18px;
+}
+
+.order-total {
+	font-weight: 900;
+}
+
+.order-card {
+	color: #505558;
+	line-height: 1.7;
+}
+
+.ticket-box {
+	border: 1px solid #becad2;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.tickets-title {
+	font-size: 23px;
+	font-weight: 700;
+	padding: 40px 0 20px;
+}
+
+.ticket-title-box {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #373c3e;
+	padding: 20px 30px;
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 18px;
+}
+
+.ticket-title-box span {
+	display: block;
+}
+
+.ticket-title-main {
+	font-size: 25px;
+	padding-bottom: 10px;
+}
+
+.ticket-title-sub {
+	color: #959fa5;
+}
+
+.admission {
+	text-align: right;
+	padding-top: 10px;
+	font-weight: 300;
+}
+
+.ticket-detail-box {
+	background-color: #fff;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 30px;
+	line-height: 1.5;
+}
+
+.ticket-detail-wrapper {
+	display: flex;
+	margin-right: 200px;
+}
+
+.ticket-detail-wrapper .bold {
+	font-weight: 700;
+}
+
+.ticket-detail-wrapper span {
+	display: block;
+
+}
+
+.ticket-icon {
+	height: 25px;
+	margin-right: 20px;
+}
+
+.ticket-extra-info-box {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 30px 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.ticket-code {
+	font-size: 25px;
+}
+
+.ticket-email {
+	font-size: 20px;
 }

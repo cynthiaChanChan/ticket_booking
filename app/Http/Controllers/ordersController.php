@@ -9,7 +9,7 @@ class ordersController extends Controller
 {
     public function show($confirmationNumber) 
     {
-    	$order = Order::where("confirmation_number", $confirmationNumber)->first();
+    	$order = Order::findByConfirmationNumber($confirmationNumber);
     	return view("orders.show", ['order' => $order]);
     }
 }

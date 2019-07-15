@@ -32,7 +32,7 @@
 			<form id="buy_tickets">
 				<div class="price">
 					<h5>Price</h5>
-					<h5 class="num_wrapper">$15.00</h5>
+					<h5 class="num_wrapper">{{ $concert->ticket_price_in_dollars }}</h5>
 				</div>
 				<div class="num">
 					<label for="quantity">Qty</label>
