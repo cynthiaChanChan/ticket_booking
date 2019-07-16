@@ -17,8 +17,8 @@
 			<div class="ticket-box">
 				<div class="ticket-title-box">
 					<h4 class="ticket-title">
-						<span class="ticket-title-main">Sing with Me</span>
-						<span class="ticket-title-sub">with Jodie Chan</span>
+						<span class="ticket-title-main">{{ $ticket->concert->title }}</span>
+						<span class="ticket-title-sub">{{ $ticket->concert->subtitle }}</span>
 					</h4>
 					<p class="admission-box">
 						<span class="admission-title">General Admission</span>
@@ -29,22 +29,24 @@
 					<div class="ticket-detail-wrapper">
 						<img class="ticket-icon" src='{{ asset("images/calendar_active.svg") }}' alt="calendar icon">
 						<p class="ticket-datetime">
-							<span class="bold">Sunday, October 16, 2011</span>
-							<span>Doors at 9:00PM</span>
+							<time datetime="{{ $ticket->concert->date->format('Y-m-d H:i') }}">
+								<span class="bold">{{ $ticket->concert->date->format('l, F jS, Y') }}</span>
+							</time>
+							<span>{{ $ticket->concert->date->format('g:ia') }}</span>
 						</p>
 					</div>
 					<div class="ticket-detail-wrapper">
 						<img class="ticket-icon" src='{{ asset("images/location_active.svg") }}' alt="map icon">
 						<p class="ticket-address">
-							<span class="bold">Music Hall of Newyork</span>
-							<span>123 Main St.</span>
-							<span>Brooklyn, New York 14259</span>
+							<span class="bold">{{ $ticket->concert->venue }}</span>
+							<span>{{ $ticket->concert->venue_address }}</span>
+							<span>{{ $ticket->concert->city }}, {{ $ticket->concert->state }} {{ $ticket->concert->zip }}</span>
 						</p>
 					</div>
 				</div>
 				<div class="ticket-extra-info-box">
 					<span class="ticket-code">{{ $ticket->code }}</span>
-					<span class="ticket-email">somebody@example.com</span>
+					<span class="ticket-email">{{ $order->email }}</span>
 				</div>
 			</div>
 			@endforeach

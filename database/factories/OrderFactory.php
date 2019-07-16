@@ -8,7 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Order::class, function (Faker $faker) {
     return [
         'email' => 'cindy@example.com',
-        'amount' => 5000,
-        'card_last_four' => '2666'
+        'amount' => 5000
     ];
 });
