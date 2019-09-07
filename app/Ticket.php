@@ -12,7 +12,7 @@ class Ticket extends Model
     protected $guarded = [];
     
     public function claimFor($order) {
-        $this->code = TicketCode::generate();
+        $this->code = TicketCode::generateFor();
         $order->tickets()->save($this);
     }
 
