@@ -1,3 +1,7 @@
+<?php var_dump($order);
+die;
+?>
+
 @extends('layouts.master')
 @section('body')
 	<div class="bg-soft">
