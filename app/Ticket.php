@@ -4,11 +4,17 @@ namespace App;
 
 use App\Concert;
 use Carbon\Carbon;
+use App\Facades\TicketCode;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-	protected $guarded = [];
+    protected $guarded = [];
+    
+    public function claimFor($order) {
+        $this->code = TicketCode::generate();
+        $order->tickets()->save($this);
+    }
 
     public function concert() 
     {
