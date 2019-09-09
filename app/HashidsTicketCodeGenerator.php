@@ -2,7 +2,7 @@
 
 namespace App;
 
-class HashidsTicketCodeGenerator implements HashidsTicketCodeGenerator
+class HashidsTicketCodeGenerator implements TicketCodeGenerator
 {
     private $hashids;
 

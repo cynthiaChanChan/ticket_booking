@@ -19,7 +19,7 @@ class Order extends Model
             'card_last_four' => $charge->cardLastFour()
         ]);
 
-        $tikets->each->claimFor($order);
+        $tickets->each->claimFor($order);
         
         return $order;
     }
@@ -47,7 +47,7 @@ class Order extends Model
             'amount' => $this->amount,
             'tickets' => $this->tickets->map(function ($ticket) {
                 return ['code' => $ticket->code];
-            }).all()
+            })->all()
         ];
     }
 }

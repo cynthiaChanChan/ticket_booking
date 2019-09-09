@@ -1,5 +1,6 @@
 $(function() {
 	console.log(myApp.concert);
+	myApp.rootUrl = myApp.getRoot();
 	$("#buy_tickets").submit(function(e) {
 		e.preventDefault();
 		myApp.openStripe();
@@ -31,19 +32,30 @@ myApp.openStripe = function() {
 	});
 };
 
+myApp.getRoot = function() {
+	var url, publicPos, publicEnd;
+	url = window.location.href;
+	publicPos = url.indexOf('/public');
+	publicEnd = 0;
+	if (publicPos > -1) {
+		publicEnd = publicPos + 7;
+	}
+	return url.slice(0, publicEnd);
+};
+
 //post to purchase tickets
 myApp.purchaseTickets = function(token) {
 	var submitBtn = $("#submit_btn");
 	submitBtn.prop("disabled", true);
 	$.post({
-		url: "./" +  myApp.concert.id + "/orders",
+		url: myApp.rootUrl + "/concerts/" +  myApp.concert.id + "/orders",
 		data: {
 			email: token.email,
 			ticket_quantity: $("#quantity").val(),
 			payment_token: token.id
 		},
 		success: function(response) {
-			console.log("Charge successded");
+			window.location = `${myApp.rootUrl}/orders/${response.confirmation_number}`;
 		},
 		fail: function(response) {
 			submitBtn.prop("disabled", false);
