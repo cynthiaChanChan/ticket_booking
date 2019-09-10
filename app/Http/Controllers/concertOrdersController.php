@@ -34,7 +34,7 @@ class concertOrdersController extends Controller
             $reservation = $concert->reserveTickets(request('ticket_quantity'), request('email'));
             $order = $reservation->complete($this->paymentGateway, request('payment_token'));
 
-            Mail::to($order->email)->send(new OrderConfirmationEmail($order));
+            $mail = Mail::to($order->email)->send(new OrderConfirmationEmail($order));
 
             return response($order, 201);
         } catch (PaymentFailedException $e) {
@@ -42,7 +42,7 @@ class concertOrdersController extends Controller
             return response([], 422);
         } catch (NotEnoughTicketsException $e) {
             return response([], 422);
-        }
+        } 
      	
     	
     }

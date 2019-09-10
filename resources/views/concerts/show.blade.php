@@ -36,7 +36,7 @@
 				</div>
 				<div class="num">
 					<label for="quantity">Qty</label>
-					<input class="num_wrapper" id="quantity" value="1" type="number"></input>
+					<input class="num_wrapper" id="quantity" value="1" type="number">
 				</div>
 				<button type="submit" id="submit_btn" class="bold">Buy Tickets</button>
 			</form>
