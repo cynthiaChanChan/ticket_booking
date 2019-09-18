@@ -1,0 +1,76 @@
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 100%; 
+
+	@include respond(extra-large) {
+        font-size: 90%;
+	}
+	
+	@include respond(large) {
+        font-size: 80%;
+    }
+}
+
+body {
+	box-sizing: border-box;
+	min-height: 100vh;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+input, textarea, optgroup, select {
+	font-family: inherit;
+	font-size: 16px;
+	color: inherit;
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+textarea {
+	overflow: auto;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+.container {
+    max-width: $container-width;
+	margin: 0 auto;
+	padding: 0 1rem;
+
+    @include respond(extra-large) {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.clearfix {
+	@include clearfix;
+}

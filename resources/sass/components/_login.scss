@@ -1,0 +1,62 @@
+.login {
+    padding: 2rem;
+    width: 28rem; 
+    border-radius: 3px;  
+    box-shadow: 0 3px .7rem rgba(0,0,0,.25);
+    color: #000;
+    
+    @include center-by-absolute;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__item {
+        display: flex;
+        border: 1px solid $color-grey-dark-2; 
+        border-radius: 3px;  
+        margin-bottom: 1.8rem;     
+    }
+
+    &__icon-box {
+        display: flex;
+        padding: .6rem .8rem;
+        border-right: 1px solid $color-grey-dark-2;
+
+        & svg {
+            height: 1.2rem;
+            width: 1.2rem;
+            fill: $color-grey-dark-2;
+            align-items: center;
+        }
+    }
+
+    &__input {
+        flex: 1;
+        padding: .4rem .6rem;
+    }
+
+    &__submit {
+        width: 100%;
+	    background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+        color: $color-white;
+        border-radius: 3px;
+        padding: .6rem .8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all .1s;
+
+        &:hover {
+            opacity: .85;
+        }
+    }
+
+    &__warming {
+        margin-top: 1rem;
+        text-align: center;
+        color: red;
+    }
+}

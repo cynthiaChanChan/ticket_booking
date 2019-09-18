@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Facade;
 
 class TicketCode extends Facade
 {
-    protected static function getFacadeAccessor()
-    {
-        return TicketCodeGenerator::class;
-    }
+	protected static function getFacadeAccessor()
+	{
+		return TicketCodeGenerator::class;
+	}
 }

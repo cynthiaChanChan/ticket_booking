@@ -1,0 +1,19 @@
+  
+body {
+	font-weight: 400;
+	line-height: 1.6;
+	color: $color-grey-dark-2;
+	background-color: $color-grey-light-1;
+}
+
+.heading-primary {
+	color: $color-grey-dark-1;
+
+	&--main {
+		font-size: 1.8rem;
+	}
+
+	&--sub {
+		font-size: 1rem;
+	}
+}

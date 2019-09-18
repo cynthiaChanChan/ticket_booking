@@ -1,0 +1,37 @@
+@mixin clearfix {
+	&::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+}
+
+@mixin center-by-absolute {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//Media query
+/*
+Order: Base + typography > general layout + grid > page layout > components
+lem = 16px;
+*/
+@mixin respond($breakpoint) {
+	@if $breakpoint == extra-small {
+		@media only screen and (max-width: 31em) { @content }; //496px
+	}
+	@if $breakpoint == small {
+		@media only screen and (max-width: 36em) { @content }; //576px
+	}
+	@if $breakpoint == medium {
+		@media only screen and (max-width: 48em) { @content }; //768px
+	}
+	@if $breakpoint == large {
+		@media only screen and (max-width: 62em) { @content }; //992px
+	}
+	@if $breakpoint == extra-large {
+		@media only screen and (max-width: 75em) { @content }; //1200px
+	}
+}

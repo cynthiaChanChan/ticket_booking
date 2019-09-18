@@ -1,0 +1,31 @@
+.ticket {
+    max-width: 40%;
+    margin: 0 auto;
+    
+    &__container {
+        padding: 1rem 1.5rem;
+        border-bottom: $line;
+    }
+
+    &__info {
+
+        &__item {
+            margin-bottom: 1.5rem;
+
+            img {
+                width: 1.2rem;
+	            vertical-align: middle;
+	            margin-right: .5rem;
+            }
+
+            span {
+                color: $color-grey-dark-1;
+                vertical-align: middle;
+            }
+
+            p {
+                margin-left: 1.7rem;
+            }
+        }
+    }
+}

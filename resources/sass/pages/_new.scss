@@ -1,0 +1,62 @@
+.add-concert {
+    border-bottom: $line;
+    padding: 1rem 0;
+    background-color: $color-white;
+
+    h1 {
+        font-size: 1.25rem;
+    }
+}
+
+.create-form {
+    padding: 1.5rem 0;
+    display: block;
+
+    .form-part {
+        border-bottom: $line;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+
+        &__container {
+            display: flex;
+
+            .form-info {
+                flex-basis: 33.333%;
+                padding: 1rem 0;
+                margin-right: 1rem;
+
+                h2 {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+
+                p {
+                    font-size: .875rem;
+                }
+            }
+
+            .form-card {
+                flex-basis: 66.667%;
+                background-color: $color-white;
+                padding: 1rem 1.5rem;
+            }
+
+        }
+    }
+}
+
+.flex-list {
+    display: flex;
+
+    .item--4 {
+        flex-basis: 33.333%;
+    }
+
+    .form__group:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    .form__group:not(:first-child) {
+        margin-left: 1rem;
+    }
+}

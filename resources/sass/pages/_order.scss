@@ -1,0 +1,41 @@
+.order-box {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.order {
+
+    &__header {
+        border-bottom: $line;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+    }
+    &__summary {
+        font-weight: normal;
+    }
+
+    &__confirmation-num {
+        color: $color-primary;
+    }
+
+    &__desc {
+        border-bottom: $line;
+        padding: 1rem;
+
+    }
+
+    &__total {
+        font-weight: 700;
+        color: $color-grey-dark-1;
+    }
+}
+
+.ticket-cards {
+    &__title {
+        font-size: 1rem;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+}

@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use App\Concert;
 use Carbon\Carbon;
 use App\Facades\TicketCode;

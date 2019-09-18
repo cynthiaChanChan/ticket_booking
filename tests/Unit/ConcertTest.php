@@ -64,6 +64,8 @@ class ConcertTest extends TestCase
         $this->assertEquals(50, $concert->ticketsRemaining());
     }
 
+        
+    }
 
     /** @test */
     function can_reserve_available_tickets()

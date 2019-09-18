@@ -1,0 +1,79 @@
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+
+    &__group {
+        flex-basis: 50%;
+    }
+
+    &__label {
+        color: $color-grey-dark-1;
+        display: block;
+        font-size: .8rem;
+        margin-bottom: 0.25rem;
+        font-weight: 700;
+    }
+
+    .input-group {
+        display: flex;
+        border: $line;
+        border-radius: $small-radius;
+        overflow: hidden;
+
+        &__addon {
+            display: flex;
+            padding: 0 .75rem;
+            align-items: center;
+            border-right: $line;
+        }
+
+        .form__control {
+            flex: 1;
+            border: none;
+            border-radius: 0;
+        }
+    }
+
+    &__control {
+        display: block;
+        width: 100%;
+        padding: .5rem .75rem;
+        background-color: #fff;
+        line-height: 1.25;
+        border: $line;
+        border-radius: $small-radius;
+
+        &--static {
+            background-color: transparent;
+            border: none;
+            padding: .5rem 0;
+        }
+
+        &::-webkit-input-placeholder, &::placeholder {
+            color: $color-grey-light-3;
+        }
+
+        &[type="date"] {
+            // Get the date picker to be the same height as a regular form control
+            &::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+            &::-webkit-inner-spin-button { height: 1.25em; }
+        }
+    }
+
+    &__btn {
+        margin-top: 2rem;
+    }
+
+    .has-error {
+
+        .form__label {
+            color: $color-red;
+        }
+
+        .form__control {
+            border-color: $color-red;
+        }
+    }
+}

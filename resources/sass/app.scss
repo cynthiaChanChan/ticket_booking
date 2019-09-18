@@ -1,8 +1,22 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-// Variables
-@import 'variables';
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "components/button";
+@import "components/alert";
+@import "components/ticket";
+@import "components/form";
+@import "components/login";
+@import "components/navbar";
+@import "components/ticket-card";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home";
+@import "pages/order";
+@import "pages/new";

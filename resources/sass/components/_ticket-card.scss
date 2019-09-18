@@ -1,0 +1,71 @@
+.ticket-card {
+    margin-bottom: 1.5rem;
+    border: $line;
+    background-color: $color-white;
+    &__title-box {
+        background-color: $color-secondary;
+        color: $color-white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__title {
+        font-size: 1rem;
+
+        &--main {
+            font-size: 1.5rem;
+        }
+
+        &--sub {
+            color: $color-grey-light-2;
+            font-weight: 400;
+        }
+    }
+
+    &__admission {
+        text-align: right;
+
+        &--main {
+            font-weight: 700;
+        }
+
+        &--sub {
+            color: $color-grey-light-2;
+        }
+    }
+
+    &__detail-box {
+        display: flex;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid $color-grey-light-2;
+    }
+
+    &__detail {
+        display: flex;
+        width: 50%;
+    }
+
+    &__icon {
+        height: 1.5rem;
+        fill: $color-primary;
+        padding-right: .8rem;
+    }
+
+    &__note-box {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        color: $color-grey-dark-1;
+    }
+}
+
+.bold {
+    font-weight: bold;
+    color: #000;
+}

@@ -1,6 +1,6 @@
 <script>
-	window.myApp = {
+	window.App = {
 		csrfToken: '{{ csrf_token() }}',
-    stripePublicKey: '{{ config('services.stripe.key') }}'
+    	stripePublicKey: '{{ config('services.stripe.key') }}'
 	}
 </script>

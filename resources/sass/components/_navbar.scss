@@ -1,0 +1,25 @@
+.navbar {
+    background-color: $color-secondary;
+    padding: .75rem 0; 
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            width: 2.5rem;
+            display: block;
+        }
+    
+        .logout {
+    
+            button {
+                background-color: transparent;
+                color: $color-white;
+                font-size: 100%;
+            }
+        }
+    }
+
+}

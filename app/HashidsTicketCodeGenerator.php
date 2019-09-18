@@ -11,8 +11,8 @@ class HashidsTicketCodeGenerator implements TicketCodeGenerator
         $this->hashids = new \Hashids\Hashids($salt, 6, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
     }
 
-    public function generateFor($ticket)
-    {
-        return $this->hashids->encode($ticket->id);
-    }
+	public function generateFor($ticket) 
+	{
+		return $this->hashids->encode($ticket->id);
+	}
 }

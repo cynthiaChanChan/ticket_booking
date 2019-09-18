@@ -1,0 +1,26 @@
+.alert {
+    padding: 1rem 1.5rem;
+    border: $line;
+    border-radius: $small-radius;
+
+    &--danger {
+        border-color: $color-red;
+        background-color: $color-red-light;
+        color: $color-red;
+    }
+
+    &__title {
+        margin-bottom: .5rem;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    &__list {
+        padding-left: 2.5rem;
+        list-style: disc;
+
+        li:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+}

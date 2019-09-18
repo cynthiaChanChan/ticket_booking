@@ -1,0 +1,115 @@
+.btn {
+    position: relative;
+    background-image: linear-gradient(to right, $color-primary, $color-primary-dark); 
+    color: $color-white;
+    padding: 1.25rem 6.25rem;
+    border-radius: 100px;
+    font-size: .93rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    cursor: pointer;
+    backface-visibility: hidden;
+
+    @include respond(extra-small) {
+        font-size: .87rem;
+    }
+
+    &--right {
+        float: right;
+    }
+
+    &__visible,
+    &__invisible {
+        display: inline-block;
+        width: 100%;
+        padding: 1.25rem;        
+        position: absolute;
+        left: 0;
+        transition: all .3s;
+
+        @include respond(extra-small) {
+            padding: 1rem;
+        }
+    }
+
+    &__visible {
+        top: 0;
+    }
+
+    &__invisible {
+        top: -60%;
+        opacity: 0;
+    }
+
+    &:hover &__visible {
+        top: 60%;
+        opacity: 0;
+    }
+
+    &:hover &__invisible {
+        top: 0;
+        opacity: 1;
+    }
+
+    &--normal {
+        padding: 1rem 2rem;
+        transition: transform, color .3s;
+
+        &:hover {
+            transform: translateY(-2px);
+            color: $color-grey-light-2;
+        }
+    
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+}
+
+
+
+.btn-inline {
+    display: inline-block;
+    color: $color-primary;
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    & span {
+        margin-left: 3px;
+        transition: margin-left  .2s;
+    }
+
+    &:hover {
+        color: $color-grey-dark-1;
+
+        span {
+            margin-left: 8px;
+        }
+    }
+
+    &:focus {
+        backface-visibility: hidden;
+        animation: pulsate 1s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 2.5rem rgba(0,0,0,.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+ }
