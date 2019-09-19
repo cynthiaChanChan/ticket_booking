@@ -37,6 +37,16 @@ class Concert extends Model
         return $query->whereNotNull('published_at');
     }
 
+    public function isPublished() 
+    {
+        return $this->published_at !== null;
+    }
+
+    public function publish()
+    {
+        $this->update(['published_at' => strftime('%Y-%m-%d %H:%M:%S', time())]);
+    }
+
     public function orders() 
     {
         return $this->belongsToMany(Order::class, 'tickets');

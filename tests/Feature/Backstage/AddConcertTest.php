@@ -22,7 +22,7 @@ class AddConcertTest extends TestCase
             'title' => 'Big Concert',
             'subtitle' => '',
             'additional_information' => "You must be 19 years of age to attend this concert.",
-            'date' => '2017-11-18',
+            'date' => '2019-08-18',
             'time' => '8:00pm',
             'venue' => 'The Mosh Pit',
             'venue_address' => '123 Fake St.',
