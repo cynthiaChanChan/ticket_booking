@@ -2,14 +2,20 @@
 
 namespace App;
 
-use App\Exceptions\NotEnoughTicketsException;
+use App\User;
 use App\Order;
 use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\NotEnoughTicketsException;
 
 class Concert extends Model
 {
     protected $guarded = [];
     protected $dates = ['date'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function getFormattedDateAttribute() 
     {

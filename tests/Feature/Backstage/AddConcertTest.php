@@ -19,8 +19,8 @@ class AddConcertTest extends TestCase
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)->post('/backstage/concerts',[
-            'title' => 'No Warning',
-            'subtitle' => 'with Cruel Hand and Backtrack',
+            'title' => 'Big Concert',
+            'subtitle' => '',
             'additional_information' => "You must be 19 years of age to attend this concert.",
             'date' => '2017-11-18',
             'time' => '8:00pm',
@@ -29,10 +29,11 @@ class AddConcertTest extends TestCase
             'city' => 'Laraville',
             'state' => 'ON',
             'zip' => '12345',
-            'ticket_price' => '32.50',
+            'ticket_price' => '6',
             'ticket_quantity' => '75'
         ]);
         
+        var_dump($response);
         $response->assertStatus(302);
         
     }
