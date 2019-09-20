@@ -6,5 +6,28 @@
     margin-bottom: 1rem;
 }
 
+.mg-bottom-tn {
+    margin-bottom: .5rem;
+}
+
+.flex-sb-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-fit {
+    flex: 1;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
 
 

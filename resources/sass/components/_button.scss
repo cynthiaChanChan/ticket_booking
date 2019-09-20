@@ -4,9 +4,8 @@
     color: $color-white;
     padding: 1.25rem 6.25rem;
     border-radius: 100px;
-    font-size: .93rem;
+    font-size: 1rem;
     font-weight: 300;
-    text-transform: uppercase;
     cursor: pointer;
     backface-visibility: hidden;
 
@@ -52,12 +51,34 @@
     }
 
     &--normal {
-        padding: 1rem 2rem;
+        padding: .5rem 1rem;
         transition: transform, color .3s;
+        border-radius: .25rem;
 
         &:hover {
             transform: translateY(-2px);
             color: $color-grey-light-2;
+        }
+    
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+
+    &--grey {
+        background: $color-grey-light-2;
+        color: $color-secondary;
+        font-size: .875rem;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: .5rem 1rem;
+        box-shadow: $shadow-light;
+        margin-right: 1rem;
+        transition: all .3s;
+
+        &:hover {
+            transform: translateY(-2px);
+            background: $color-grey-light-3;
         }
     
         &:active {

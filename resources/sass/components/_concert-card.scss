@@ -1,0 +1,33 @@
+.concert-card {
+    background-color: $color-white;
+    padding: 1rem;
+    border-radius: .25rem;
+    flex-basis: 32%;
+    
+    &:not(:last-of-type) {
+        margin-right: 2%;
+    }
+
+    h3 {
+        color: $color-secondary;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    &__subtitle {
+        color: $color-grey-dark-1;
+        margin-bottom: .5rem;
+        
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 1.25rem;
+        fill: $color-primary;
+        margin-right: .5rem;
+    }
+}

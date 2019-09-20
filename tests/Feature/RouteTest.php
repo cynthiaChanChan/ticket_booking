@@ -41,4 +41,10 @@ class RouteTests extends TestCase
         $this->assertTrue($data->contains($concertD));
         $this->assertFalse($data->contains($concertC));
     }
+
+    /** @test */
+    function view_concerts_list() {
+        $user = factory(User::class)->create();
+        $response = $this->actingAs($user)->get('/backstage/concerts');
+    }
 }

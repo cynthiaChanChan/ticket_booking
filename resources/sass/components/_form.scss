@@ -51,10 +51,6 @@
             padding: .5rem 0;
         }
 
-        &::-webkit-input-placeholder, &::placeholder {
-            color: $color-grey-light-3;
-        }
-
         &[type="date"] {
             // Get the date picker to be the same height as a regular form control
             &::-webkit-datetime-edit-fields-wrapper { padding: 0; }

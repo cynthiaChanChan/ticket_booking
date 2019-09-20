@@ -21,7 +21,7 @@ class LoginController extends Controller
             ])->withInput(request(['email']));
         }
 
-        return redirect('/backstage/concerts/new');
+        return redirect('/backstage/concerts/');
     }
 
     public function logout()
