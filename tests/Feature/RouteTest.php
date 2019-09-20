@@ -23,7 +23,12 @@ class RouteTests extends TestCase
     function promoters_can_view_their_concerts()
     {
         $user = factory(User::class)->create();
-        $concerts = factory(Concert::class, 3)->create(['user_id' => $user->id]);
+        $otherUser = factory(User::class)->create();
+
+        $concertA = factory(Concert::class)->create(['user_id' => $user->id]);
+        $concertB = factory(Concert::class)->create(['user_id' => $user->id]);
+        $concertC = factory(Concert::class)->create(['user_id' => $otherUser->id]);
+        $concertD = factory(Concert::class)->create(['user_id' => $user->id]);
 
         $response = $this->actingAs($user)->get('/backstage/concerts');
 
@@ -31,6 +36,9 @@ class RouteTests extends TestCase
 
         $data = $response->original->getData()['concerts'];
 
-        $this->assertTrue($data->contains($concerts[0]));
+        $this->assertTrue($data->contains($concertA));
+        $this->assertTrue($data->contains($concertB));
+        $this->assertTrue($data->contains($concertD));
+        $this->assertFalse($data->contains($concertC));
     }
 }
