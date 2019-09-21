@@ -47,4 +47,17 @@ class RouteTests extends TestCase
         $user = factory(User::class)->create();
         $response = $this->actingAs($user)->get('/backstage/concerts');
     }
+
+    /** @test */
+    function edit_concert() {
+        $user = factory(User::class)->create();
+        $concert = factory(Concert::class)->create(['user_id' => $user->id]);
+        $this->assertFalse($concert->isPublished());
+        
+        $response = $this->actingAs($user)->get("/backstage/concerts/{$concert->id}/edit");
+
+        $response->assertStatus(200);
+        
+        $this->assertTrue($response->original->getData()["concert"]->is($concert));
+    }
 }
