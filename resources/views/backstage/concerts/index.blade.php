@@ -47,7 +47,7 @@
                     {{ $concert->formatted_date }} @ {{ $concert->formatted_start_time }}
                 </div>
                 <div>
-                    <a class="btn btn--grey" href="{{ route('/backstage/concerts/edit', ['id' => {$concert->id}]) }}">Edit</a>
+                    <a class="btn btn--grey" href="{{ route('backstage.concerts.edit', ['id' => $concert->id]) }}">Edit</a>
                     <a class="btn-inline" href="">Publish</a>
                 </div>
             </div>

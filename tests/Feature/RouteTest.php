@@ -14,6 +14,21 @@ class RouteTests extends TestCase
     use DatabaseMigrations;
 
     /** @test */
+    function login() {
+        $user = factory(User::class)->create([
+            'email' => 'test@my.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        $response = $this->post('login', [
+            'email' => 'test@my.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        $response->assertRedirect('/backstage/concerts/');
+    }
+
+    /** @test */
     function new()
     {
         $this->get('/backstage/concerts/new');
