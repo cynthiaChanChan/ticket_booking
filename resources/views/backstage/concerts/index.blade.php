@@ -5,7 +5,7 @@
     <div class="add-concert">
         <div class="container flex-sb-center">
             <h1>Your concerts</h1>
-            <a href="{{ route('backstage.concerts.new') }}" class="btn btn--normal">Add concert</a>
+            <a href="{{ route('backstage.concerts.new') }}" class="btn btn--normal">Add Concert</a>
         </div>
     </div>
     <section class="container">
