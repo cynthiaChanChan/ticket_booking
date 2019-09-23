@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class RouteTests extends TestCase
+class RouteTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -91,7 +91,8 @@ class RouteTests extends TestCase
             'city' => 'Laraville',
             'state' => 'ON',
             'zip' => '12345',
-            'ticket_price' => '6'
+            'ticket_price' => '6',
+            'ticket_quantity' => '10'
         ]);
         
 
@@ -106,7 +107,8 @@ class RouteTests extends TestCase
             'city' => 'Laraville',
             'state' => 'ON',
             'zip' => '12345',
-            'ticket_price' => '6'
+            'ticket_price' => '6',
+            'ticket_quantity' => '11'
         ]);
             
         $this->assertFalse($concert->isPublished());
@@ -117,5 +119,6 @@ class RouteTests extends TestCase
 
         $this->assertEquals('HulaHula', $concert->title);
         $this->assertEquals(Carbon::parse("2019-08-18 8:00pm"), $concert->date);
+        $this->assertEquals('11', $concert->ticket_quantity);
     }
 }

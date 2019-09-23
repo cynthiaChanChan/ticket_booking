@@ -51,7 +51,6 @@ class ConcertsController extends Controller
 
         $concert->publish();
         
-        return $concert;
         return redirect()->route('concerts.show', $concert);
     }
 
@@ -70,15 +69,16 @@ class ConcertsController extends Controller
     public function update($id, Request $request) 
     {
         $request->validate([
-            'title' => ['required'],
-            'date' => ['required', 'date'],
-            'time' => ['required', 'date_format:g:ia'],
-            'venue' => ['required'],
-            'venue_address' => ['required'],
-            'city' => ['required'],
-            'state' => ['required'],
-            'zip' => ['required'],
-            'ticket_price' => ['required', 'numeric', 'min:5']
+            'title' => 'required',
+            'date' => 'required', 'date',
+            'time' => 'required', 'date_format:g:ia',
+            'venue' => 'required',
+            'venue_address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'ticket_price' => 'required|numeric|min:5',
+            'ticket_quantity' => 'required|integer|min: 1'
         ]);
 
         $concert = Auth::user()->concerts()->findOrFail($id);
@@ -93,6 +93,7 @@ class ConcertsController extends Controller
                 request('time')
             ])),
             'ticket_price' => request('ticket_price') * 100,
+            'ticket_quantity' => (int) request('ticket_quantity'),
             'venue' => request('venue'),
             'venue_address' => request('venue_address'),
             'city' => request('city'),

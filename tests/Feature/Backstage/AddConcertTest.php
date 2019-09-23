@@ -33,7 +33,6 @@ class AddConcertTest extends TestCase
             'ticket_quantity' => '75'
         ]);
         
-        var_dump($response);
         $response->assertStatus(302);
         
     }
