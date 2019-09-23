@@ -8,7 +8,7 @@
         </div>
     </div>
     
-    <form action="#" method="POST" class="form create-form" enctype="multipart/form-data">
+    <form action="{{ route('backstage.concerts.update', ['id' => $concert->id] ) }}" method="POST" class="form create-form" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('patch') }}
 
