@@ -48,7 +48,11 @@
                 </div>
                 <div>
                     <a class="btn btn--grey" href="{{ route('backstage.concerts.edit', ['id' => $concert->id]) }}">Edit</a>
-                    <a class="btn-inline" href="">Publish</a>
+                    <form class="inline-block" action="{{ route('backstage.published-concerts.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="concert_id" value="{{ $concert->id }}">
+                    <button class="btn-inline" type="submit">Publish</button>
+                    </form>
                 </div>
             </div>
             @endforeach

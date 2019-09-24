@@ -49,8 +49,6 @@ class ConcertsController extends Controller
             'additional_information' => request('additional_information'),
             'ticket_quantity' => (int) request('ticket_quantity')
         ]);
-
-        $concert->publish();
         
         return redirect()->route('backstage.concerts.index');
     }

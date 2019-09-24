@@ -79,3 +79,7 @@ h1, h2, h3 {
 .clearfix {
 	@include clearfix;
 }
+
+.inline-block {
+	display: inline-block;
+}
