@@ -15,6 +15,7 @@ $factory->define(App\Concert::class, function (Faker $faker) {
         'subtitle' => 'with The Fake Operners',
         'date' => Carbon::parse('+2 weeks'),
         'ticket_price' => 3750,
+        'ticket_quantity' => 5,
         'venue' => 'The Big Concert',
         'venue_address' => '10 Big Road',
         'city' => 'New York',

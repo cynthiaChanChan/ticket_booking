@@ -45,6 +45,7 @@ class Concert extends Model
     public function publish()
     {
         $this->update(['published_at' => strftime('%Y-%m-%d %H:%M:%S', time())]);
+        $this->addTickets($this->ticket_quantity);
     }
 
     public function orders() 

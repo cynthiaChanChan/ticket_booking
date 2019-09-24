@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use App\Concert;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -33,6 +34,10 @@ class AddConcertTest extends TestCase
             'ticket_quantity' => '75'
         ]);
         
+        $concert = Concert::first();
+
+        $this->assertEquals(75, $concert->ticket_quantity);
+
         $response->assertStatus(302);
         
     }
