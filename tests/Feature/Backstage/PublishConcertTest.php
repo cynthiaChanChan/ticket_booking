@@ -37,7 +37,6 @@ class PublishConcertTest extends TestCase
     }
 
     /** @test */
-
     function concert_can_only_be_published_once() {
         $user = factory(User::class)->create();
         $concert = factory(Concert::class)->create([
@@ -54,5 +53,42 @@ class PublishConcertTest extends TestCase
         $response->assertStatus(422);
 
         $this->assertEquals(3, $concert->fresh()->ticketsRemaining());
+    }
+
+    /** @test */
+    function promoter_cannot_publish_other_concerts()
+    {
+        $user = factory(User::class)->create();
+        $otheruser = factory(User::class)->create();
+        $concert = factory(Concert::class)->states('unpublished')->create([
+            'user_id' => $otheruser->id,
+            'ticket_quantity' => 3
+        ]);
+
+        $response = $this->actingAs($user)->post('/backstage/published-concerts', [
+            'concert_id' => $concert->id
+        ]);
+
+        $response->assertStatus(404);
+        $concert = $concert->fresh();
+        $this->assertFalse($concert->isPublished());
+        $this->assertEquals(0, $concert->ticketsRemaining());
+    }
+
+    /** @test */
+    function guest_cannot_publish_concerts()
+    {
+        $concert = factory(Concert::class)->states('unpublished')->create([
+            'ticket_quantity' => 3
+        ]);
+
+        $response = $this->post('/backstage/published-concerts', [
+            'concert_id' => $concert->id
+        ]);
+
+        $concert = $concert->fresh();
+        $this->assertFalse($concert->isPublished());
+        $this->assertEquals(0, $concert->ticketsRemaining());
+
     }
 }
