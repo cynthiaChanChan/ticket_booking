@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class ConcertsController extends Controller
 {   
     public function index() {
-        return view('backstage.concerts.index', ['concerts' => Auth::user()->concerts]);
+
+        $concerts = Auth::user()->concerts;
+
+        return view('backstage.concerts.index', [
+            'publishedConcerts' => $concerts->filter->isPublished(),
+            'unpublishedConcerts' => $concerts->reject->isPublished()
+        ]);
     }
 
     public function create() 
