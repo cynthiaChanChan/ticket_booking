@@ -59,7 +59,7 @@ class ConcertTest extends TestCase
     /** @test */
     function can_add_tickets()
     {
-        $concert = factory(Concert::class)->create()->addTickets(50);
+        $concert = factory(Concert::class)->create(['ticket_quantity' => 50]);
 
         $this->assertEquals(50, $concert->ticketsRemaining());
     }
@@ -70,7 +70,7 @@ class ConcertTest extends TestCase
     /** @test */
     function can_reserve_available_tickets()
     {
-        $concert = factory(Concert::class)->create()->addTickets(3);
+        $concert = factory(Concert::class)->create(['ticket_quantity' => 3]);
         $this->assertEquals(3, $concert->ticketsRemaining());  
 
         $reservation = $concert->reserveTickets(2, 'john@example.com');

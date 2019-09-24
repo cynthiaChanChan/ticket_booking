@@ -30,8 +30,9 @@ class DatabaseSeeder extends Seeder
             'zip' => "17916",
             'date' => Carbon::parse('2019-12-13 8:00pm'),
             'ticket_price' => 3250,
+            'ticket_quantity' => 10,
             'additional_information' => "This concert is 19+.",
-        ])->addTicket(10);
+        ]);
 
         factory(App\Concert::class)->create([
             'user_id' => $user->id,

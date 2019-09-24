@@ -11,7 +11,7 @@
     <section class="container">
         <h2 class="list-title">Published</h2>
         <div class="your-concerts">
-            @foreach ($concerts as $concert)
+            @foreach ($concerts->filter->isPublished() as $concert)
             <div class='concert-card mg-bottom-sm'>
                 <h3>{{ $concert->title }}</h3>
                 <p class="concert-card__subtitle">{{ $concert->subtitle }}</p>
@@ -34,7 +34,7 @@
     <section class="container">
         <h2 class="list-title">Drafts</h2>
         <div class="your-concerts">
-            @foreach ($concerts as $concert)
+            @foreach ($concerts->reject->isPublished() as $concert)
             <div class='concert-card mg-bottom-sm'>
                 <h3>{{ $concert->title }}</h3>
                 <p class="concert-card__subtitle">{{ $concert->subtitle }}</p>
