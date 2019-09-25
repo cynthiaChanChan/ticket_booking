@@ -768,6 +768,7 @@ h3 {
 
 .progress-card {
   background: #fff;
+  border-radius: 0.25rem;
 }
 
 .progress-card__section {
@@ -834,6 +835,7 @@ h3 {
 .orders-list {
   padding: 1rem 1.5rem;
   background-color: #fff;
+  border-radius: 0.25rem;
 }
 
 .orders-list .table th,

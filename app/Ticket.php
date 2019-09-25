@@ -27,6 +27,11 @@ class Ticket extends Model
     	return $query->WhereNull('order_id')->WhereNull('reserved_at');
     }
 
+    public function scopeSold($query)
+    {
+        return $query->whereNotNull('order_id');
+    }
+
     public function reserve()
     {
         $this->update(['reserved_at' => Carbon::now()]);

@@ -2,13 +2,14 @@
 
 namespace Tests\Unit;
 
+use App\Ticket;
 use App\Concert;
-use App\Exceptions\NotEnoughTicketsException;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use App\Exceptions\NotEnoughTicketsException;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ConcertTest extends TestCase
 {
@@ -64,8 +65,6 @@ class ConcertTest extends TestCase
         $this->assertEquals(50, $concert->ticketsRemaining());
     }
 
-        
-    }
 
     /** @test */
     function can_reserve_available_tickets()
@@ -78,5 +77,14 @@ class ConcertTest extends TestCase
         $this->assertCount(2, $reservation->tickets());
         $this->assertEquals('john@example.com', $reservation->email());
         $this->assertEquals(1, $concert->ticketsRemaining());  
+    }
+
+    /** @test */
+    function tickets_sold_only_includes_tickets_associated_with_an_order()
+    {
+        $concert = factory(Concert::class)->create();
+        $concert->tickets()->saveMany(factory(Ticket::class, 3)->create(['order_id' => 1]));
+        $concert->tickets()->saveMany(factory(Ticket::class, 2)->create(['order_id' => null]));
+        $this->assertEquals(3, $concert->ticketsSold());
     }
 }
