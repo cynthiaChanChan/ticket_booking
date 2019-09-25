@@ -1,0 +1,19 @@
+.backstage-bar {
+    border-bottom: $line;
+    padding: 1rem 0;
+    background-color: $color-white;
+
+    h1 {
+        font-size: 1.25rem;
+
+        span {
+            color: $color-grey-light-3;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        .slash {
+            margin: 0 .5rem;
+        }
+    }
+}

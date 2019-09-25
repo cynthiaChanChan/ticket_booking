@@ -1,13 +1,21 @@
+.bold {
+    font-weight: 700 !important;
+}
+
 .mg-bottom-md {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.25rem !important;
 }
 
 .mg-bottom-sm {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
+}
+
+.mg-right-sm {
+    margin-right: 1rem !important;
 }
 
 .mg-bottom-tn {
-    margin-bottom: .5rem;
+    margin-bottom: .5rem !important;
 }
 
 .flex-sb-center {

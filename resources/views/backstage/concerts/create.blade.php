@@ -2,7 +2,7 @@
 
 @section('backstageContent')
 <div class="flex-fit">
-    <div class="add-concert">
+    <div class="backstage-bar">
         <div class="container">
             <h1>Add a concert</h1>
         </div>

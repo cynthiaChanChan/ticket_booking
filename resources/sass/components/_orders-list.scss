@@ -1,0 +1,18 @@
+.orders-list {
+    padding: 1rem 1.5rem;
+    background-color: $color-white;
+
+    .table th, table td {
+        text-align: left;
+        padding: .5rem;
+    }
+
+    .table th {
+        font-weight: 700;
+        border-bottom: 2px solid $color-grey-light-2;
+    }
+
+    .table td {
+        border-bottom: $line;
+    }
+}

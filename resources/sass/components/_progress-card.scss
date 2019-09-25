@@ -1,0 +1,69 @@
+.progress-card {
+    background: $color-white;
+
+    &__section {
+        border-bottom: $line;
+        padding: 1rem 1.5rem;
+
+        .progress {
+            display: block;
+            width: 100%;
+            height: .5rem;
+        }
+
+        .progress[value] {
+            //set overall background
+            background: $color-grey-light-2;
+            //remove Firefox and Opera border
+            border: 0;
+            // reset default appearance
+            appearance: none;
+            border-radius: .25rem;
+
+            &::-ms-fill {
+                background: $color-primary;
+                // Remove right-hand border of value bar from IE10+/Edge
+                border: 0;
+            }
+
+            &::-webkit-progress-value {
+                background: $color-primary;
+                border-top-left-radius: .25rem;
+                border-bottom-left-radius: .25rem;
+            }
+
+            &::-moz-progress-bar {
+                background: $color-primary;
+                border-top-left-radius: .25rem;
+                border-bottom-left-radius: .25rem;
+            }
+
+            // Unfilled portion of the bar
+            &::-webkit-progress-bar {
+                background: $color-grey-light-2;
+                border-radius: .25rem;
+            }
+        }
+
+        
+    }
+
+    &__list {
+        display: flex;
+        padding: 1rem 2.5rem;
+        text-align: center;
+    }
+
+    &__item {
+        flex-basis: 33.33333333%;
+
+        h3 {
+            font-size: 1rem;
+        }
+
+        .bold {
+            font-size: 2.25rem;
+            margin-top: .25rem;
+        }
+    }
+}

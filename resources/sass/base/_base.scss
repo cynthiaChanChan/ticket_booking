@@ -61,8 +61,10 @@ button {
 	}
 }
 
-h1, h2, h3 {
-	font-weight: normal;
+table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
 }
 
 .container {
@@ -82,4 +84,8 @@ h1, h2, h3 {
 
 .inline-block {
 	display: inline-block;
+}
+
+.title-margin-top {
+	margin-top: 1.5rem;
 }

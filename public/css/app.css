@@ -170,10 +170,10 @@ button:focus {
   outline: none;
 }
 
-h1,
-h2,
-h3 {
-  font-weight: normal;
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
 }
 
 .container {
@@ -199,6 +199,10 @@ h3 {
   display: inline-block;
 }
 
+.title-margin-top {
+  margin-top: 1.5rem;
+}
+
 body {
   font-family: "lato", Helvetica, Arial, Sans-Serif;
   font-weight: 400;
@@ -219,16 +223,30 @@ body {
   font-size: 1rem;
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
 .mg-bottom-md {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem !important;
 }
 
 .mg-bottom-sm {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem !important;
+}
+
+.mg-right-sm {
+  margin-right: 1rem !important;
 }
 
 .mg-bottom-tn {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem !important;
 }
 
 .flex-sb-center {
@@ -350,7 +368,6 @@ body {
   color: #c69963;
   font-size: inherit;
   border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
   background-color: transparent;
   cursor: pointer;
   transition: all 0.2s;
@@ -696,11 +713,6 @@ body {
   color: #54483A;
 }
 
-.bold {
-  font-weight: bold;
-  color: #000;
-}
-
 .concert-card {
   background-color: #fff;
   padding: 1rem;
@@ -732,6 +744,111 @@ body {
   width: 1.25rem;
   fill: #c69963;
   margin-right: 0.5rem;
+}
+
+.backstage-bar {
+  border-bottom: 1px solid #e8eaeb;
+  padding: 1rem 0;
+  background-color: #fff;
+}
+
+.backstage-bar h1 {
+  font-size: 1.25rem;
+}
+
+.backstage-bar h1 span {
+  color: #afb3b5;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.backstage-bar h1 .slash {
+  margin: 0 0.5rem;
+}
+
+.progress-card {
+  background: #fff;
+}
+
+.progress-card__section {
+  border-bottom: 1px solid #e8eaeb;
+  padding: 1rem 1.5rem;
+}
+
+.progress-card__section .progress {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+}
+
+.progress-card__section .progress[value] {
+  background: #e8eaeb;
+  border: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0.25rem;
+}
+
+.progress-card__section .progress[value]::-ms-fill {
+  background: #c69963;
+  border: 0;
+}
+
+.progress-card__section .progress[value]::-webkit-progress-value {
+  background: #c69963;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.progress-card__section .progress[value]::-moz-progress-bar {
+  background: #c69963;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.progress-card__section .progress[value]::-webkit-progress-bar {
+  background: #e8eaeb;
+  border-radius: 0.25rem;
+}
+
+.progress-card__list {
+  display: flex;
+  padding: 1rem 2.5rem;
+  text-align: center;
+}
+
+.progress-card__item {
+  flex-basis: 33.33333333%;
+}
+
+.progress-card__item h3 {
+  font-size: 1rem;
+}
+
+.progress-card__item .bold {
+  font-size: 2.25rem;
+  margin-top: 0.25rem;
+}
+
+.orders-list {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+}
+
+.orders-list .table th,
+.orders-list table td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.orders-list .table th {
+  font-weight: 700;
+  border-bottom: 2px solid #e8eaeb;
+}
+
+.orders-list .table td {
+  border-bottom: 1px solid #e8eaeb;
 }
 
 .backstage-footer {
@@ -779,16 +896,6 @@ body {
 .ticket-cards__title {
   font-size: 1rem;
   padding: 2rem 1rem 1rem 1rem;
-}
-
-.add-concert {
-  border-bottom: 1px solid #e8eaeb;
-  padding: 1rem 0;
-  background-color: #fff;
-}
-
-.add-concert h1 {
-  font-size: 1.25rem;
 }
 
 .create-form {

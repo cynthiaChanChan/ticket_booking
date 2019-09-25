@@ -2,7 +2,7 @@
 
 @section('backstageContent')
 <div class="flex-fit">
-    <div class="add-concert">
+    <div class="backstage-bar">
         <div class="container flex-sb-center">
             <h1>Your concerts</h1>
             <a href="{{ route('backstage.concerts.new') }}" class="btn btn--normal">Add Concert</a>
@@ -24,8 +24,8 @@
                     {{ $concert->formatted_date }} @ {{ $concert->formatted_start_time }}
                 </div>
                 <div>
-                    <a class="btn btn--grey" href="">Manage</a>
-                    <a class="btn-inline" href="">Public Link</a>
+                    <a class="btn btn--grey" href="{{ route('backstage.published-concert-orders.index', $concert) }}">Manage</a>
+                    <a class="btn-inline" href="{{ route('concerts.show', $concert) }}">Public Link</a>
                 </div>
             </div>
             @endforeach
