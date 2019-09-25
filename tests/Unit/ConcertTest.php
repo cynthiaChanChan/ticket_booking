@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Ticket;
 use App\Concert;
+use App\Order;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -86,5 +87,17 @@ class ConcertTest extends TestCase
         $concert->tickets()->saveMany(factory(Ticket::class, 3)->create(['order_id' => 1]));
         $concert->tickets()->saveMany(factory(Ticket::class, 2)->create(['order_id' => null]));
         $this->assertEquals(3, $concert->ticketsSold());
+    }
+
+    /** @test */
+    function calculating_the_revenue_in_dollars() {
+        $concert = factory(Concert::class)->create();
+        $orderA = factory(Order::class)->create(['amount' => 3850]);
+        $orderB = factory(Order::class)->create(['amount' => 9625]);
+        $concert->tickets()->saveMany(factory(Ticket::class, 2)->create(['order_id' => $orderA->id]));
+        $concert->tickets()->saveMany(factory(Ticket::class, 5)->create(['order_id' => $orderB->id]));
+
+        $this->assertEquals(134.75, $concert->revenueInDollars());
+
     }
 }

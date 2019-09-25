@@ -33,7 +33,7 @@
                 </div>
                 <div class="progress-card__item">
                     <h3>Total Revenue</h3>
-                    <div class="bold">{{ $concert->ticketsRemaining() }}</div>
+                    <div class="bold">${{ $concert->revenueInDollars() }}</div>
                 </div>
             </div>
         </div>
