@@ -4,6 +4,7 @@ namespace App;
 
 use App\User;
 use App\Order;
+use App\AttendeeMessage;
 use Illuminate\Database\Eloquent\Model;
 use App\Exceptions\NotEnoughTicketsException;
 
@@ -15,6 +16,11 @@ class Concert extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function attendeeMessages() 
+    {
+        return $this->hasMany(AttendeeMessage::class);
     }
 
     public function getFormattedDateAttribute() 

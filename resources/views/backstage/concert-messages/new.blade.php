@@ -21,7 +21,7 @@
             <div class="message-card">
                 <h1 class="list-title text-center">New Message</h1>
                 
-                @if(session()->has('flash'))
+                @if(session('flash'))
                 <div class="alert alert--success">Message sent!</div>
                 @endif
                 <form class="form block" action="#" method="POST">
