@@ -9,6 +9,12 @@
         color: $color-red;
     }
 
+    &--success {
+        border-color: $color-primary;
+        background-color: $color-grey-light-1;
+        color: $color-primary;
+    }
+
     &__title {
         margin-bottom: .5rem;
         font-size: 1rem;

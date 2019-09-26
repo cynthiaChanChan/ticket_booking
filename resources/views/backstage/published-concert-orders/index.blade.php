@@ -10,8 +10,8 @@
                 <span>{{ $concert->formatted_date }}</span>
             </h1>
             <div class="btns">
-                <a href="#" class="btn-inline bold mg-right-sm">Orders</a>
-                <a href="#" class="btn-inline">Message Attendees</a>
+                <a href="{{ route('backstage.published-concert-orders.index', $concert) }}" class="btn-inline bold mg-right-sm">Orders</a>
+                <a href="{{ route('backstage.concert-messages.new', $concert) }}" class="btn-inline">Message Attendees</a>
             </div>
         </div>
     </div>

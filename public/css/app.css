@@ -269,7 +269,11 @@ h3 {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
+}
+
+.block {
+  display: block !important;
 }
 
 .btn {
@@ -441,6 +445,12 @@ h3 {
   border-color: #d95550;
   background-color: #fffafa;
   color: #d95550;
+}
+
+.alert--success {
+  border-color: #c69963;
+  background-color: #f9f7f6;
+  color: #c69963;
 }
 
 .alert__title {
@@ -857,6 +867,19 @@ h3 {
   border-bottom: 1px solid #e8eaeb;
 }
 
+.message-card {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.message-card .form {
+  padding: 0;
+  padding-top: 1rem;
+}
+
 .backstage-footer {
   background-color: #101d2c;
   padding: 2rem 0;
@@ -965,5 +988,9 @@ h3 {
   font-size: 1rem;
   color: #54483A;
   margin: 1.5rem 0 0.75rem;
+}
+
+.message-box {
+  margin-top: 3rem;
 }
 
