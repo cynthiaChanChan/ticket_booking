@@ -41,6 +41,9 @@
     <div class="container mg-bottom-md">
         <h2 class='list-title'>Recent Orders</h2>
         <div class="orders-list">
+            @if($orders->isEmpty())
+            <div class="text-center">No orders yet</div>
+            @else
             <table class="table">
                 <thead>
                     <tr>
@@ -56,16 +59,17 @@
                     <tr>
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->ticketQuantity() }}</td>
-                        <td>{{ $order->formatted_amount }}</td>
+                        <td>{{ number_format($order->amount / 100, 2) }}</td>
                         <td>
                             <span>****</span>
                             {{ $order->card_last_four }}
                         </td>
-                        <td>{{ $order->formatted_date }}</td>
+                        <td>{{ $order->created_at->format('M j, Y, g:ia') }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            @endif
         </div>
     </div>
 </div>

@@ -3,7 +3,10 @@
 namespace Tests\Feature;
 
 use App\User;
+use App\Order;
+use App\Ticket;
 use App\Concert;
+use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,6 +24,10 @@ class ViewPublishedConcertOrdersTest extends TestCase
             'user_id' => $user->id
         ]);
         $concert->publish();
+        
+        $order = factory(Order::class)->create(['created_at' => Carbon::parse('10 days ago')]);
+        $tickets = factory(Ticket::class, 1)->create(['concert_id' => $concert->id]);
+        $order->tickets()->saveMany($tickets);
 
         $response = $this->actingAs($user)->get("/backstage/published-concerts/{$concert->id}/orders");
 
