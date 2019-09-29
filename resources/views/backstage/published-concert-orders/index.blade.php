@@ -10,8 +10,8 @@
                 <span>{{ $concert->formatted_date }}</span>
             </h1>
             <div class="btns">
-                <a href="{{ route('backstage.published-concert-orders.index', $concert) }}" class="btn-inline bold mg-right-sm">Orders</a>
-                <a href="{{ route('backstage.concert-messages.new', $concert) }}" class="btn-inline">Message Attendees</a>
+                <a href="{{ route('backstage.published-concert-orders.index', ['id' => $concert->id]) }}" class="btn-inline bold mg-right-sm">Orders</a>
+                <a href="{{ route('backstage.concert-messages.new', ['id' => $concert->id]) }}" class="btn-inline">Message Attendees</a>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
         <div class="progress-card">
             <div class="progress-card__section">
                 <p class="mg-bottom-sm">This show is {{ $concert->percentSoldOut() }}% sold out</p>
-                <progress class="progress" value="{{ $concert->ticketsSold() }}" max="{{ $concert->totalTickets() }}">{{ $concert->percentSoldOut() }}</progress>
+                <progress class="progress" value="{{ $concert->ticketsSold() }}" max="{{ $concert->totalTickets() }}">63.11</progress>
             </div>
             <div class="progress-card__list">
                 <div class="progress-card__item">
@@ -42,7 +42,9 @@
         <h2 class='list-title'>Recent Orders</h2>
         <div class="orders-list">
             @if($orders->isEmpty())
-            <div class="text-center">No orders yet</div>
+            <div class="text-center">
+                No orders yet.
+            </div>
             @else
             <table class="table">
                 <thead>
@@ -50,8 +52,8 @@
                         <th>Email</th>
                         <th>Tickets</th>
                         <th>Amount</th>
-                        <th>Card</th>
-                        <th>Purchased</th>
+                        <th class="sm-hide">Card</th>
+                        <th class="sm-hide">Purchased</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,11 +62,11 @@
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->ticketQuantity() }}</td>
                         <td>{{ number_format($order->amount / 100, 2) }}</td>
-                        <td>
+                        <td class="sm-hide"> 
                             <span>****</span>
                             {{ $order->card_last_four }}
                         </td>
-                        <td>{{ $order->created_at->format('M j, Y, g:ia') }}</td>
+                        <td class="sm-hide">{{ $order->created_at->format('M j, Y, g:ia') }}</td>
                     </tr>
                     @endforeach
                 </tbody>

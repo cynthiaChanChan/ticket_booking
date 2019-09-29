@@ -103,15 +103,9 @@ html {
   font-size: 100%;
 }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 48em) {
   html {
     font-size: 90%;
-  }
-}
-
-@media only screen and (max-width: 62em) {
-  html {
-    font-size: 80%;
   }
 }
 
@@ -289,12 +283,6 @@ h3 {
           backface-visibility: hidden;
 }
 
-@media only screen and (max-width: 31em) {
-  .btn {
-    font-size: 0.87rem;
-  }
-}
-
 .btn--right {
   float: right;
 }
@@ -470,12 +458,25 @@ h3 {
 
 .ticket {
   max-width: 40%;
-  margin: 0 auto;
+  margin: 2rem auto;
+}
+
+@media only screen and (max-width: 62em) {
+  .ticket {
+    max-width: 60%;
+  }
+}
+
+@media only screen and (max-width: 36em) {
+  .ticket {
+    max-width: 100%;
+  }
 }
 
 .ticket__container {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #e8eaeb;
+  background-color: #fff;
 }
 
 .ticket__info__item {
@@ -705,13 +706,24 @@ h3 {
 
 .ticket-card__detail-box {
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #e8eaeb;
 }
 
 .ticket-card__detail {
   display: flex;
-  width: 50%;
+  flex-basis: 50%;
+}
+
+@media only screen and (max-width: 36em) {
+  .ticket-card__detail {
+    flex-basis: 100%;
+  }
+
+  .ticket-card__detail:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
 }
 
 .ticket-card__icon {
@@ -732,6 +744,12 @@ h3 {
   padding: 1rem;
   border-radius: 0.25rem;
   flex-basis: 32%;
+}
+
+@media only screen and (max-width: 62em) {
+  .concert-card {
+    flex-basis: 100%;
+  }
 }
 
 .concert-card:not(:last-of-type) {
@@ -829,12 +847,20 @@ h3 {
 
 .progress-card__list {
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem 2.5rem;
   text-align: center;
 }
 
 .progress-card__item {
   flex-basis: 33.33333333%;
+  padding: 1rem 1.5rem;
+}
+
+@media only screen and (max-width: 48em) {
+  .progress-card__item {
+    flex-basis: 100%;
+  }
 }
 
 .progress-card__item h3 {
@@ -865,6 +891,12 @@ h3 {
 
 .orders-list .table td {
   border-bottom: 1px solid #e8eaeb;
+}
+
+@media only screen and (max-width: 36em) {
+  .orders-list .table .sm-hide {
+    display: none;
+  }
 }
 
 .message-card {
@@ -903,6 +935,7 @@ h3 {
 .order__header {
   border-bottom: 1px solid #e8eaeb;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -912,8 +945,20 @@ h3 {
   font-weight: normal;
 }
 
+@media only screen and (max-width: 36em) {
+  .order__summary {
+    flex-basis: 100%;
+  }
+}
+
 .order__confirmation-num {
   color: #c69963;
+}
+
+@media only screen and (max-width: 36em) {
+  .order__confirmation-num {
+    flex-basis: 100%;
+  }
 }
 
 .order__desc {
@@ -944,12 +989,19 @@ h3 {
 
 .create-form .form-part__container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .create-form .form-part__container .form-info {
-  flex-basis: 33.333%;
+  flex-basis: 33.33333333%;
   padding: 1rem 0;
-  margin-right: 1rem;
+  padding-right: 1rem;
+}
+
+@media only screen and (max-width: 62em) {
+  .create-form .form-part__container .form-info {
+    flex-basis: 100%;
+  }
 }
 
 .create-form .form-part__container .form-info h2 {
@@ -962,9 +1014,15 @@ h3 {
 }
 
 .create-form .form-part__container .form-card {
-  flex-basis: 66.667%;
+  flex-basis: 66.66666667%;
   background-color: #fff;
   padding: 1rem 1.5rem;
+}
+
+@media only screen and (max-width: 62em) {
+  .create-form .form-part__container .form-card {
+    flex-basis: 100%;
+  }
 }
 
 .flex-list {
@@ -995,6 +1053,6 @@ h3 {
 }
 
 .message-box {
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 

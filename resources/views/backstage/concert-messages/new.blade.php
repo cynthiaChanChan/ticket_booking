@@ -24,7 +24,7 @@
                 @if(session('flash'))
                 <div class="alert alert--success">Message sent!</div>
                 @endif
-                <form class="form block" action="#" method="POST">
+                <form class="form block" action="{{ route('backstage.concert-messages.store', $concert)}}" method="POST">
                 {{ csrf_field() }}
                     <div class="form-group mg-bottom-sm">
                         <label class="form__label">Subject</label>

@@ -42,13 +42,22 @@
 
     &__detail-box {
         display: flex;
+        flex-wrap: wrap;
         padding: 1rem 1.5rem;
         border-bottom: 1px solid $color-grey-light-2;
     }
 
     &__detail {
         display: flex;
-        width: 50%;
+        flex-basis: 50%;
+
+        @include respond('small') {
+            flex-basis: 100%;
+
+            &:not(:last-of-type) {
+                margin-bottom: 1rem;
+            }
+        }
     }
 
     &__icon {

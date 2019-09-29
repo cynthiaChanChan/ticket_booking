@@ -8,6 +8,7 @@
     &__header {
         border-bottom: $line;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
@@ -15,10 +16,17 @@
     }
     &__summary {
         font-weight: normal;
+
+        @include respond('small') {
+            flex-basis: 100%;
+        }
     }
 
     &__confirmation-num {
         color: $color-primary;
+        @include respond('small') {
+            flex-basis: 100%;
+        }
     }
 
     &__desc {

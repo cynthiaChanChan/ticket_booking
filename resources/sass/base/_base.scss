@@ -8,13 +8,9 @@
 
 html {
 	font-size: 100%; 
-
-	@include respond(extra-large) {
-        font-size: 90%;
-	}
 	
-	@include respond(large) {
-        font-size: 80%;
+	@include respond(medium) {
+        font-size: 90%;
     }
 }
 

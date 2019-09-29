@@ -3,6 +3,10 @@
     padding: 1rem;
     border-radius: .25rem;
     flex-basis: 32%;
+
+    @include respond('large') {
+        flex-basis: 100%;
+    }
     
     &:not(:last-of-type) {
         margin-right: 2%;

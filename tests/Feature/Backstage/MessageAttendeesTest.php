@@ -7,6 +7,7 @@ use App\Concert;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\AttendeeMessage;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -18,6 +19,7 @@ class MessageAttendeesTest extends TestCase
     /** @test */
     function a_promoter_can_send_a_new_message()
     {
+        Queue::fake();
         $user = factory(User::class)->create();
         $concert = factory(Concert::class)->create([
             'user_id' => $user->id

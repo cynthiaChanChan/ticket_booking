@@ -9,11 +9,16 @@
 
         &__container {
             display: flex;
+            flex-wrap: wrap;
 
             .form-info {
-                flex-basis: 33.333%;
+                flex-basis: 33.33333333%;
                 padding: 1rem 0;
-                margin-right: 1rem;
+                padding-right: 1rem;
+
+                @include respond('large') {
+                    flex-basis: 100%;
+                }
 
                 h2 {
                     font-size: 1rem;
@@ -26,9 +31,13 @@
             }
 
             .form-card {
-                flex-basis: 66.667%;
+                flex-basis: 66.66666667%;
                 background-color: $color-white;
                 padding: 1rem 1.5rem;
+
+                @include respond('large') {
+                    flex-basis: 100%;
+                }
             }
 
         }
