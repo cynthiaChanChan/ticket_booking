@@ -71,5 +71,10 @@
         .form__control {
             border-color: $color-red;
         }
+
+        .help-block {
+            color: $color-red;
+            margin-top: .25rem;
+        }
     }
 }

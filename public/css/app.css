@@ -573,6 +573,11 @@ h3 {
   border-color: #d95550;
 }
 
+.form .has-error .help-block {
+  color: #d95550;
+  margin-top: 0.25rem;
+}
+
 .login {
   padding: 2rem;
   width: 28rem;

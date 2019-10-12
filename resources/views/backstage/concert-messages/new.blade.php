@@ -26,13 +26,23 @@
                 @endif
                 <form class="form block" action="{{ route('backstage.concert-messages.store', $concert)}}" method="POST">
                 {{ csrf_field() }}
-                    <div class="form-group mg-bottom-sm">
+                    <div class="form-group mg-bottom-sm {{ $errors->first('subject', 'has-error')}}">
                         <label class="form__label">Subject</label>
-                        <input type="text" class="form__control" name="subject" required="required">
+                        <input type="text" class="form__control" name="subject" value="{{ old('subject') }}">
+                        @if($errors->has('subject'))
+                        <p class="help-block">
+                            {{ $errors->first('subject') }}
+                        </p>
+                        @endif
                     </div>
-                    <div class="form-group mg-bottom-sm">
+                    <div class="form-group mg-bottom-sm {{ $errors->first('message', 'has-error')}}">
                         <label class="form__label">Message</label>
-                        <textarea name="message" rows="10" class="form__control" required="required"></textarea>
+                        <textarea name="message" rows="10" class="form__control" value="{{ old('message') }}"></textarea>
+                        @if($errors->has('message'))
+                        <p class="help-block">
+                            {{ $errors->first('message') }}
+                        </p>
+                        @endif
                     </div>
                     <div class="text-center">
                         <button class="btn btn--normal" type="submit">Send Now</button>
