@@ -26,6 +26,7 @@ class CreateConcertsTable extends Migration
             $table->string('zip');
             $table->text('additional_information')->nullable();
             $table->unsignedInteger('user_id');
+            $table->string('poster_image_path')->nullable();
             $table->datetime('published_at')->nullable();
             $table->integer('ticket_quantity');
             $table->timestamps();
