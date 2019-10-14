@@ -6,6 +6,7 @@ use App\User;
 use App\Order;
 use App\AttendeeMessage;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use App\Exceptions\NotEnoughTicketsException;
 
 class Concert extends Model
@@ -36,6 +37,16 @@ class Concert extends Model
     public function getticketPriceInDollarsAttribute() 
     {
     	return number_format($this->ticket_price/100, 2);
+    }
+
+    public function hasPoster() 
+    {
+        return $this->poster_image_path !== null;
+    }
+
+    public function posterUrl()
+    {
+        return Storage::disk('public')->url($this->poster_image_path);
     }
 
     public function scopePublished($query) 

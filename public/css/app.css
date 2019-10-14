@@ -456,46 +456,57 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-.ticket {
+.concert {
   max-width: 40%;
-  margin: 2rem auto;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
 @media only screen and (max-width: 62em) {
-  .ticket {
+  .concert {
     max-width: 60%;
   }
 }
 
 @media only screen and (max-width: 36em) {
-  .ticket {
+  .concert {
     max-width: 100%;
   }
 }
 
-.ticket__container {
+.concert__container {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #e8eaeb;
   background-color: #fff;
 }
 
-.ticket__info__item {
+.concert__info__item {
   margin-bottom: 1.5rem;
 }
 
-.ticket__info__item img {
+.concert__info__item img {
   width: 1.2rem;
   vertical-align: middle;
   margin-right: 0.5rem;
 }
 
-.ticket__info__item span {
+.concert__info__item span {
   color: #54483A;
   vertical-align: middle;
 }
 
-.ticket__info__item p {
+.concert__info__item p {
   margin-left: 1.7rem;
+}
+
+.concert-box {
+  margin: 0 auto;
+  padding: 2rem 0;
+  background: #fff;
+}
+
+.concert-box .concert {
+  max-width: 50%;
 }
 
 .form {
@@ -930,6 +941,20 @@ h3 {
 
 .cta {
   background-color: #fff;
+}
+
+.concert-box {
+  display: flex;
+  max-width: 83.33333333%;
+}
+
+.concert-box .poster {
+  max-width: 50%;
+  padding: 1rem 1.5rem;
+}
+
+.concert-box .poster img {
+  width: 100%;
 }
 
 .order-box {

@@ -1,6 +1,7 @@
-.ticket {
+.concert {
     max-width: 40%;
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 2rem 0;
 
     @include respond('large') {
         max-width: 60%;
@@ -36,5 +37,15 @@
                 margin-left: 1.7rem;
             }
         }
+    }
+}
+
+.concert-box {
+    margin: 0 auto;
+    padding: 2rem 0;
+    background: $color-white;
+
+    .concert {
+        max-width: 50%;
     }
 }
