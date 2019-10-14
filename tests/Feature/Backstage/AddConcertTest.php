@@ -49,7 +49,7 @@ class AddConcertTest extends TestCase
     function poster_image_is_uploaded_if_included() {
         Storage::fake('s3');
         $user = factory(User::class)->create();
-        $file = UploadedFile::fake()->image('concert-poster.png');
+        $file = UploadedFile::fake()->image('concert-poster.png', 850, 1100);
 
         $response = $this->actingAs($user)->post('/backstage/concerts',[
             'title' => 'Big Concert',
@@ -71,5 +71,4 @@ class AddConcertTest extends TestCase
 
         Storage::disk('s3')->assertExists($concert->poster_image_path);
     }
-    
 }
