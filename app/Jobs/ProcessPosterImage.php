@@ -3,7 +3,9 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Intervention\Image\Facades\Image;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -31,6 +33,12 @@ class ProcessPosterImage implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $imageConcents = Storage::disk('public')->get($this->concert->poster_image_path);
+
+        $image = Image::make($imageConcents);
+
+        $image->resize(600)->encode();
+
+        Storage::disk('public')->put($this->concert->poster_image_path, (string) $image);
     }
 }
