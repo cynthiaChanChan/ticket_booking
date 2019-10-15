@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="form__group mg-bottom-sm <?php echo e($errors->first('poster_image', 'has-error')); ?>">
-                        <label for="" class="form__label">Concert Poster</label>
+                        <label for="" class="form__label">Concert Poster (800px * 1100px)</label>
                         <input class="form__control" type="file" name="poster_image" accept="image/*">
                     </div>
                 </div>
