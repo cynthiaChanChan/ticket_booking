@@ -576,15 +576,20 @@ h3 {
   margin-top: 2rem;
 }
 
-.form .has-error .form__label {
+.has-error .form__label {
   color: #d95550;
 }
 
-.form .has-error .form__control {
+.has-error .form__control {
   border-color: #d95550;
 }
 
-.form .has-error .help-block {
+.has-error .help-block {
+  color: #d95550;
+  margin-top: 0.25rem;
+}
+
+.text-danger {
   color: #d95550;
   margin-top: 0.25rem;
 }
@@ -612,7 +617,11 @@ h3 {
   display: flex;
   border: 1px solid #6D5D4B;
   border-radius: 3px;
-  margin-bottom: 1.8rem;
+  margin-top: 1.8rem;
+}
+
+.login__item.has-error {
+  border-color: #d95550;
 }
 
 .login__icon-box {
@@ -640,6 +649,7 @@ h3 {
   border-radius: 3px;
   padding: 0.6rem 0.8rem;
   font-weight: 700;
+  margin-top: 1.8rem;
   cursor: pointer;
   transition: all 0.1s;
 }
@@ -648,10 +658,10 @@ h3 {
   opacity: 0.85;
 }
 
-.login__warming {
+.login__warning {
   margin-top: 1rem;
   text-align: center;
-  color: red;
+  color: #d95550;
 }
 
 .navbar {

@@ -61,20 +61,25 @@
     &__btn {
         margin-top: 2rem;
     }
+}
 
-    .has-error {
+.has-error {
 
-        .form__label {
-            color: $color-red;
-        }
-
-        .form__control {
-            border-color: $color-red;
-        }
-
-        .help-block {
-            color: $color-red;
-            margin-top: .25rem;
-        }
+    .form__label {
+        color: $color-red;
     }
+
+    .form__control {
+        border-color: $color-red;
+    }
+
+    .help-block {
+        color: $color-red;
+        margin-top: .25rem;
+    }
+}
+
+.text-danger {
+    color: $color-red;
+    margin-top: .25rem;
 }

@@ -18,7 +18,11 @@
         display: flex;
         border: 1px solid $color-grey-dark-2; 
         border-radius: 3px;  
-        margin-bottom: 1.8rem;     
+        margin-top: 1.8rem;
+        
+        &.has-error {
+            border-color: $color-red;
+        }
     }
 
     &__icon-box {
@@ -46,6 +50,7 @@
         border-radius: 3px;
         padding: .6rem .8rem;
         font-weight: 700;
+        margin-top: 1.8rem;  
         cursor: pointer;
         transition: all .1s;
 
@@ -54,9 +59,10 @@
         }
     }
 
-    &__warming {
+    &__warning {
         margin-top: 1rem;
         text-align: center;
-        color: red;
+        color: $color-red;
     }
+
 }
