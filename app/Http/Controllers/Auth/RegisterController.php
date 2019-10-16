@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Concert;
+use App\Invitation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -13,6 +14,10 @@ class RegisterController extends Controller
 {
     public function register()
     {
+        $invitation = Invitation::findByCode(request('invitation_code'));
+
+        abort_if($invitation->user_id !== null, 404);
+        
         request()->validate([
             'email' => 'required|email|unique:users',
             'password' => 'required'
