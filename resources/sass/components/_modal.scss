@@ -1,0 +1,10 @@
+.modal {
+    padding: 2rem;
+    background-color: $color-white;
+    @include center-by-absolute;
+
+    .btn {
+        text-align: center;
+        display: block;
+    }
+}

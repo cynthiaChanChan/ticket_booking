@@ -227,6 +227,10 @@ h3 {
   font-weight: 700 !important;
 }
 
+.mg-bottom-bg {
+  margin-bottom: 2rem !important;
+}
+
 .mg-bottom-md {
   margin-bottom: 1.25rem !important;
 }
@@ -940,6 +944,20 @@ h3 {
 .message-card .form {
   padding: 0;
   padding-top: 1rem;
+}
+
+.modal {
+  padding: 2rem;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal .btn {
+  text-align: center;
+  display: block;
 }
 
 .backstage-footer {
