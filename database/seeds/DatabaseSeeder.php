@@ -1,8 +1,9 @@
 <?php
 
-use App\Concert;
 use App\Order;
 use App\Ticket;
+use App\Concert;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,12 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
+        $gateway = new \App\Billing\FakePaymentGateway;
+        
         $user = factory(App\User::class)->create([
             'email' => 'user@somewhere.com',
             'password' => bcrypt('secret')
         ]);
 
-        factory(App\Concert::class)->states('published')->create([
+        //Create published concerts
+        $concert = factory(App\Concert::class)->create([
             'user_id' => $user->id,
             'title' => "The Red Chord",
             'subtitle' => "with Animosity and Lethargy",
@@ -28,12 +33,24 @@ class DatabaseSeeder extends Seeder
             'city' => "Laraville",
             'state' => "ON",
             'zip' => "17916",
-            'date' => Carbon::parse('2019-12-13 8:00pm'),
+            'date' => Carbon::today()->addMonths(3)->hours(20),
             'ticket_price' => 3250,
-            'ticket_quantity' => 10,
+            'ticket_quantity' => 210,
             'additional_information' => "This concert is 19+.",
         ]);
 
+        $concert->publish();
+
+        foreach(range(1, 50) as $i) {
+            Carbon::setTestNow(Carbon::instance($faker->dateTimebetween('-2 months')));
+
+            $concert->reserveTickets(rand(1, 4), $faker->safeEmail)
+                ->complete($gateway, $gateway->getValidTestToken($faker->creditCardNumber), 'test_account_1234');
+        }
+
+        Carbon::setTestNow();
+
+        //Create unpublished concerts
         factory(App\Concert::class)->create([
             'user_id' => $user->id,
             'title' => "Slayer",
@@ -45,7 +62,8 @@ class DatabaseSeeder extends Seeder
             'zip' => "19276",
             'date' => Carbon::parse('2019-10-05 7:00pm'),
             'ticket_price' => 5500,
+            'ticket_quantity' => 10,
             'additional_information' => null,
-        ])->addTicket(10);
+        ]);
     }
 }
