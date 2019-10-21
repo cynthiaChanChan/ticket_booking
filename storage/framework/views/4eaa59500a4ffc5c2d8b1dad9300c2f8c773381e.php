@@ -36,6 +36,7 @@
             concert-id="<?php echo e($concert->id); ?>" 
             concert-title="<?php echo e($concert->title); ?>"
             price="<?php echo e($concert->ticket_price); ?>"
+            tickets-remaining="<?php echo e($concert->ticketsRemaining()); ?>"
         ></ticket-checkout>
     </div>
 </div><?php /**PATH C:\wamp64\www\ticket_booking\resources\views/concerts/partials/card-no-poster.blade.php ENDPATH**/ ?>

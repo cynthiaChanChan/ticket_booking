@@ -21,7 +21,7 @@ class StripePaymentGatewayTest extends TestCase
 	{
 		$paymentGateway = $this->getPaymentGateway();
 
-		var_dump($paymentGateway->charge(5000, $paymentGateway->getValidTestToken(), env('STRIPE_TEST_PROMOTER_ID')));
+		$paymentGateway->charge(5000, $paymentGateway->getValidTestToken(), env('STRIPE_TEST_PROMOTER_ID'));
 
 		$lastStripeCharge = array_first(\Stripe\Charge::all(
         	['limit' => 1],

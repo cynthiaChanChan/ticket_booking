@@ -10,12 +10,12 @@
         </div>
         <button class="btn form__btn"
             @click="openStripe"
-            :class="{ 'btn-loading': processing}"
+            :class="{ 'btn__loading': processing}"
             :disabled="processing"
         >
             &nbsp;
             <span class="btn__visible">Buy Tickets</span>
-            <span class="btn__invisible">Only 8 tickets left</span>
+            <span class="btn__invisible">Only {{ ticketsRemaining }} tickets left</span>
         </button>
     </div>   
 </template>
@@ -25,7 +25,8 @@ export default {
     props: [
         'price',
         'concertTitle',
-        'concertId'
+        'concertId',
+        'ticketsRemaining'
     ],
     data() {
         return {

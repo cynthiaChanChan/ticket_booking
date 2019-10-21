@@ -39,6 +39,7 @@
                 concert-id="{{ $concert->id }}" 
                 concert-title="{{ $concert->title }}"
                 price="{{ $concert->ticket_price }}"
+                tickets-remaining = "{{ $concert->ticketsRemaining() }}"
             ></ticket-checkout>
         </div>
     </div>

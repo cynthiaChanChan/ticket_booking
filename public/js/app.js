@@ -1861,7 +1861,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['price', 'concertTitle', 'concertId'],
+  props: ['price', 'concertTitle', 'concertId', 'ticketsRemaining'],
   data: function data() {
     return {
       quantity: 1,
@@ -19608,7 +19608,7 @@ var render = function() {
       "button",
       {
         staticClass: "btn form__btn",
-        class: { "btn-loading": _vm.processing },
+        class: { btn__loading: _vm.processing },
         attrs: { disabled: _vm.processing },
         on: { click: _vm.openStripe }
       },
@@ -19617,7 +19617,7 @@ var render = function() {
         _c("span", { staticClass: "btn__visible" }, [_vm._v("Buy Tickets")]),
         _vm._v(" "),
         _c("span", { staticClass: "btn__invisible" }, [
-          _vm._v("Only 8 tickets left")
+          _vm._v("Only " + _vm._s(_vm.ticketsRemaining) + " tickets left")
         ])
       ]
     )
