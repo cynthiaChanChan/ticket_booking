@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'city' => "Laraville",
             'state' => "ON",
             'zip' => "19276",
-            'date' => Carbon::parse('2019-10-05 7:00pm'),
+            'date' => Carbon::today()->addMonths(3)->hours(20),
             'ticket_price' => 5500,
             'ticket_quantity' => 10,
             'additional_information' => null,

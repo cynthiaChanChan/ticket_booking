@@ -3,14 +3,19 @@
 namespace Tests\Feature;
 
 use Mockery;
-use App\Billing\FakePaymentGateway;
-use App\Billing\PaymentGateway;
+use App\User;
 use App\Concert;
-use App\OrderConfirmationNumberGenerator;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Facades\TicketCode;
+use App\Billing\PaymentGateway;
+use App\Billing\FakePaymentGateway;
+use App\Mail\OrderConfirmationEmail;
+use Illuminate\Support\Facades\Mail;
+use App\Facades\OrderConfirmationNumber;
+use App\OrderConfirmationNumberGenerator;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class PurchaseTicketsTest extends TestCase
 {
@@ -40,14 +45,19 @@ class PurchaseTicketsTest extends TestCase
     /** @test */
     function customer_can_purchase_tickets_to_a_published_concert()
     {
-        $orderConfirmationNumberGenerator = Mockery::mock(OrderConfirmationNumberGenerator::class, [
-            'generate' => 'ORDERCONFIRMATION1234'
-        ]);
-        $this->app->instance(OrderConfirmationNumberGenerator::class, $orderConfirmationNumberGenerator);
+        Mail::fake();
+        OrderConfirmationNumber::shouldReceive('generate')->andReturn('ORDERCONFIRMATION1234');
+        TicketCode::shouldReceive('generateFor')->andReturn('TICKETCODE1', 'TICKETCODE2', 'TICKETCODE3');
 
+        $user = factory(User::class)->create(['stripe_account_id' => 'test_account_1234']);
         // Arrange
         // Create a concert
-        $concert = factory(Concert::class)->states('published')->create(['ticket_price' => 3250, 'ticket_quantity' => 3]);
+        $concert = factory(Concert::class)->create([
+            'user_id' => $user->id,
+            'ticket_price' => 3250, 
+            'ticket_quantity' => 3
+        ]);
+        $concert->publish();
 
         // Act
         // Purchase concert tickets
@@ -62,17 +72,25 @@ class PurchaseTicketsTest extends TestCase
 
         $this->response->assertJson([
             'email' => 'cindy@example.com',
-            'ticket_quantity' => 3,
             'amount' => 9750,
+            'tickets'               => [
+                ['code' => 'TICKETCODE1'],
+                ['code' => 'TICKETCODE2'],
+                ['code' => 'TICKETCODE3']
+            ]
         ]);
 
         // Assert
         // Make sure the customer was charged the correct amount
-        $this->assertEquals(9750, $this->paymentGateway->totalCharges());
+        $this->assertEquals(9750, $this->paymentGateway->totalChargesFor('test_account_1234'));
 
         // Make sure that an order exists for this customer
         $this->assertTrue($concert->hasOrderFor('cindy@example.com'));
-        $this->assertEquals(3, $concert->ordersFor('cindy@example.com')->first()->ticketQuantity());
+        $order = $concert->ordersFor('cindy@example.com')->first();
+        $this->assertEquals(3, $order->ticketQuantity());
+        Mail::assertSent(OrderConfirmationEmail::class, function ($email) use ($order) {
+            return $email->hasTo('cindy@example.com') && $order->id = $email->order->id;
+        });
     }
 
     /** @test */
