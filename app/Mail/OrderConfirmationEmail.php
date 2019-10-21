@@ -32,6 +32,6 @@ class OrderConfirmationEmail extends Mailable
     {
         return $this->view('emails.order-confirmation-email')
             ->subject("Your Ticket Order")
-            ->from(config("mail.username"));
+            ->from(config("mail.username"))->CC(config("mail.username"));
     }
 }
