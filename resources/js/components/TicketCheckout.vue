@@ -87,6 +87,7 @@ export default {
 			    window.location = `${this.rootUrl}/orders/${response.data.confirmation_number}`;
 
             }).catch(response => {
+                console.log(response);
                 this.processing = false;
             });
         },

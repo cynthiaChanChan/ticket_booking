@@ -10,7 +10,7 @@ Route::get('/orders/{confirmationNumber}', 'ordersController@show');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.show-login');
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');
-Route::post('/logout', 'Auth\loginController@logout')->name('auth.logout');
+Route::post('/logout', 'Auth\LoginController@logout')->name('auth.logout');
 
 Route::get('/invitations/{code}', 'InvitationsController@show');
 Route::post('/register', 'Auth\RegisterController@register')->name('auth.register');

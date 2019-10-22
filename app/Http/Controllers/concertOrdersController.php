@@ -29,7 +29,6 @@ class concertOrdersController extends Controller
             'ticket_quantity' => ['required', 'integer', 'min:1'],
             'payment_token' => ['required']
         ]);
-
         try {
             $reservation = $concert->reserveTickets(request('ticket_quantity'), request('email'));
             $order = $reservation->complete($this->paymentGateway, request('payment_token'), $concert->user->stripe_account_id);
