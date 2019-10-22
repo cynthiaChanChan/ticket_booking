@@ -15,27 +15,6 @@ class RouteTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    function login() {
-        $user = factory(User::class)->create([
-            'email' => 'test@my.com',
-            'password' => bcrypt('secret')
-        ]);
-
-        $response = $this->post('login', [
-            'email' => 'test@my.com',
-            'password' => bcrypt('secret')
-        ]);
-
-        $response->assertRedirect('/backstage/concerts/');
-    }
-
-    /** @test */
-    function new()
-    {
-        $this->get('/backstage/concerts/new');
-    }
-
-    /** @test */
     function promoters_can_view_their_concerts()
     {
         $user = factory(User::class)->create();
@@ -56,12 +35,6 @@ class RouteTest extends TestCase
         $this->assertTrue($data->contains($concertB));
         $this->assertTrue($data->contains($concertD));
         $this->assertFalse($data->contains($concertC));
-    }
-
-    /** @test */
-    function view_concerts_list() {
-        $user = factory(User::class)->create();
-        $response = $this->actingAs($user)->get('/backstage/concerts');
     }
 
     /** @test */

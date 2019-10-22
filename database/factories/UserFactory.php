@@ -19,7 +19,7 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '$2y$10$54Tfs2x18n7XpXh1jiv5HeuN0r8K96bV59ttdHs7d7OEuqz/xijXa', // 'secret'
         'remember_token' => Str::random(10),
         'stripe_account_id' => 'test_account_1234',
         'stripe_access_token' => 'test_token1'
