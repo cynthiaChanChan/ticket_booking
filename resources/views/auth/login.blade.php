@@ -11,7 +11,7 @@
                     <div class="login__icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"></path></svg>
                     </div>
-                    <input class="login__input" type="email" name="email" value="{{ old('email') }}" placeholder="Email address">
+                    <input class="login__input" name="email" value="{{ old('email') }}" placeholder="User">
                 </div>
                 <div class="login__item">
                     <div class="login__icon-box">
